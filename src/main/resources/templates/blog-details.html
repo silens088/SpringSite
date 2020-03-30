@@ -9,7 +9,7 @@
 <header th:insert="blocks/header :: header"></header> <!--с помощью тимлиф встраиваем фрагмент шапки(блок) из хидер, и указываем путь-->
 
 <div class="container mt-5">
-    <!--создаем цикл-->
+    <!--создаем  цикл-->
     <div th:each="el : ${post}" class="alert alert-info mt-2"> <!--перебор вcе посты(записи из базы данных)-->
         <h1 th:text="${el.title}"/> <!--вывожу название статьи-->
         <p th:text="${el.full_text}"/> <!--вывожу полный текст-->
