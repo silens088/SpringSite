@@ -15,7 +15,7 @@ public class MainController {
     //какую страницу хотим отслеживать
     @GetMapping("/about")
     public String about(Model model) {
-        model.addAttribute("title", "страница про нас");
+        model.addAttribute("title", "Cтраница про нас");
         //какой шаблон будем вызывать
         return "about";
     }
