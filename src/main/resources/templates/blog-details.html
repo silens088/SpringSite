@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"> <!--вот это волшебный тимлиф-->
+<head>
+    <title>Блог сайта</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+<header th:insert="blocks/header :: header"></header> <!--с помощью тимлиф встраиваем фрагмент шапки(блок) из хидер, и указываем путь-->
+
+<div class="container mt-5">
+    <!--создаем цикл-->
+    <div th:each="el : ${post}" class="alert alert-info mt-2"> <!--перебор вcе посты(записи из базы данных)-->
+        <h1 th:text="${el.title}"/> <!--вывожу название статьи-->
+        <p th:text="${el.full_text}"/> <!--вывожу полный текст-->
+        <p><b>Просмотры:</b> <span th:text="${el.views}"/></p> <!--вывожу кол-во просмотров || </b> - делает текст жирным-->
+        <a th:href="'/blog/' + ${el.id} + '/edit'" class="btn btn-warning">Редактировать</a> <!--делаю ссылку на прочтение более детальной информации-->
+        <a th:href="'/blog/' + ${el.id} + '/remove'" class="btn btn-warning">Удалить</a> <!--ссылка формата блог - ид - эдит-->
+    </div>
+</div>
+
+<div th:insert="blocks/footer :: footer"></div> <!--с помощью тимлиф встраиваем фрагмент шапки(блок) из футер, и указываем путь-->
+</body>
+</html>

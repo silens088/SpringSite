@@ -1,0 +1,18 @@
+<!--создаем шапку и футер в отдельном файле для удобства-->
+
+<!--чтобы встроить кусок шапки, нужно обозначить его фрагментом-->
+
+<!--th красный, тк тимлиф не подключен. -->
+<!--А так как мы встраиваем фрагмент туда где тимлиф поделючен, то ошибки не будет-->
+<div th:fragment="header">
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h5 class="my-0 mr-md-auto font-weight-normal">компания Алфавит</h5>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="/">Главная</a>   <!--href="#" - меняем решетку на /blog -cсылка на страничку куда будет переходить -->
+            <a class="p-2 text-dark" href="/blog">Блог</a>
+            <!--создадим ссылку для добавления новой статьи-->
+            <a class="p-2 text-dark" href="/blog/add">Добавить статью</a>
+            <a class="p-2 text-dark" href="/about">Про нас</a>
+        </nav>
+    </div>
+</div>
