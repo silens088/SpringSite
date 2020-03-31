@@ -15,7 +15,7 @@
             <!--th:value="${el.title}" - сюда подставляется определенная статья-->
             <input type="text" th:value="${el.title}" name="title" placeholder="Введите название статьи" class="form-control"><br>
             <input type="text" th:value="${el.anons}" name="anons" placeholder="Введите анонс статьи" class="form-control"><br>
-            <textarea name="full_text" th:value="${el.full_text}" placeholder="Введите полный текст статьи" class="form-control"></textarea><br>
+            <textarea name="full_text" placeholder="Введите полный текст статьи" class="form-control" th:text="${el.full_text}"/><br>
             <button type="submit" class="btn btn-success">Обновить</button>
         </form>
     </div>

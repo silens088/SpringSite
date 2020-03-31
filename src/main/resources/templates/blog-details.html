@@ -15,7 +15,12 @@
         <p th:text="${el.full_text}"/> <!--вывожу полный текст-->
         <p><b>Просмотры:</b> <span th:text="${el.views}"/></p> <!--вывожу кол-во просмотров || </b> - делает текст жирным-->
         <a th:href="'/blog/' + ${el.id} + '/edit'" class="btn btn-warning">Редактировать</a> <!--делаю ссылку на прочтение более детальной информации-->
-        <a th:href="'/blog/' + ${el.id} + '/remove'" class="btn btn-warning">Удалить</a> <!--ссылка формата блог - ид - эдит-->
+
+<!--        кнопка удаляющая статью-->
+<!--        th:action - действие-->
+        <form th:action="'/blog/' + ${el.id} + '/remove'" method="post">
+            <button class="btn btn-warning" type="submit">Удалить</button>
+        </form>
     </div>
 </div>
 

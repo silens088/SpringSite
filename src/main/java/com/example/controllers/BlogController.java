@@ -90,4 +90,25 @@ public class BlogController {
         model.addAttribute("post", res);
         return "blog-edit"; //вызывается этот шаблон. (но его нужно создать в templates)
     }
+
+
+    //метод обрабатывающий данные из формы blog-edit
+    @PostMapping("/blog/{id}/edit")
+    public String blogPostUpdate(@PathVariable(value = "id") long id, @RequestParam String title, @RequestParam String anons,@RequestParam String full_text, Model model) {
+        //orElseThrow() - выбрасывает исключения если запись не найдена
+        Post post = postRepository.findById(id).orElseThrow(RuntimeException::new); //находим существующий обьект и обновляем
+        post.setTitle(title);
+        post.setAnons(anons);
+        post.setFull_text(full_text);
+        postRepository.save(post); // post - передаем обьект который пытаемся сохранить
+        return "redirect:/blog"; //переадресовываем на страницу блог
+    }
+
+    //нажимаем на кнопку, данные обрабатываются этим методом
+    @PostMapping("/blog/{id}/remove")
+    public String blogPostDelete(@PathVariable(value = "id") long id, Model model) {
+        Post post = postRepository.findById(id).orElseThrow(RuntimeException::new); //находим существующий обьект и обновляем
+        postRepository.delete(post); //удаляем пост который нашли выше строчка
+        return "redirect:/blog"; //переадресовываем на страницу блог
+    }
 }
